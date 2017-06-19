@@ -69,7 +69,6 @@ export default class TabViewAnimated<T: Route<*>> extends PureComponent<
     onIndexChange: PropTypes.func.isRequired,
     onPositionChange: PropTypes.func,
     initialLayout: PropTypes.shape({
-      height: PropTypes.number.isRequired,
       width: PropTypes.number.isRequired,
     }),
     canJumpToTab: PropTypes.func,
@@ -83,7 +82,6 @@ export default class TabViewAnimated<T: Route<*>> extends PureComponent<
   static defaultProps = {
     renderPager: (props: SceneRendererProps<*>) => <TabViewPager {...props} />,
     initialLayout: {
-      height: 0,
       width: 0,
     },
   };
@@ -181,7 +179,7 @@ export default class TabViewAnimated<T: Route<*>> extends PureComponent<
   };
 
   _handleLayout = (e: any) => {
-    const { height, width } = e.nativeEvent.layout;
+    const { width } = e.nativeEvent.layout;
 
     if (
       this.state.layout.width === width
@@ -192,7 +190,6 @@ export default class TabViewAnimated<T: Route<*>> extends PureComponent<
     this.setState({
       layout: {
         measured: true,
-        height,
         width,
       },
     });
