@@ -184,8 +184,7 @@ export default class TabViewAnimated<T: Route<*>> extends PureComponent<
     const { height, width } = e.nativeEvent.layout;
 
     if (
-      this.state.layout.width === width &&
-      this.state.layout.height === height
+      this.state.layout.width === width
     ) {
       return;
     }
