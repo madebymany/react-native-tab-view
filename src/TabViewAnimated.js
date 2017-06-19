@@ -182,7 +182,8 @@ export default class TabViewAnimated<T: Route<*>> extends PureComponent<
     const { width } = e.nativeEvent.layout;
 
     if (
-      this.state.layout.width === width
+      // round to deal with slight variation in Android width reporting
+      this.state.layout.width.toFixed(2) === width.toFixed(2)
     ) {
       return;
     }

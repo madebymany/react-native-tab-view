@@ -91,7 +91,6 @@ export default class TabViewPagerPan<T: Route<*>> extends PureComponent<
   static defaultProps = {
     configureTransition: () => DefaultTransitionSpec,
     initialLayout: {
-      height: 0,
       width: 0,
     },
     swipeDistanceThreshold: 120,
