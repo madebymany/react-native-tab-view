@@ -86,12 +86,14 @@ export default class TabViewPagerScroll<T: Route<*>> extends PureComponent<
   _scrollTo = (x: number, animated = this.props.animationEnabled !== false) => {
     this._nextOffset = x;
 
-    if (this._isIdle && this._scrollView) {
-      this._scrollView.scrollTo({
-        x,
-        animated,
-      });
-    }
+    setTimeout(() => {
+      if (this._isIdle && this._scrollView) {
+        this._scrollView.scrollTo({
+          x,
+          animated,
+        });
+      }
+    }, 0);
   };
 
   _handleMomentumScrollEnd = (e: ScrollEvent) => {
